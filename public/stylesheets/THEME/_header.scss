@@ -1,0 +1,63 @@
+#navbarNav a {
+  color: $primary-color;
+}
+#navbarNav a:hover {
+  color: $secondary-color;
+}
+
+
+.img-searcher-container{
+  background-image:url("../../images/cover.png");
+  background-size: auto;
+  max-height: 310px;
+  height: -webkit-fill-available;
+  .searcher-container{
+    max-width: 410px;
+    h2{
+      font-size: 18px;
+    }
+
+    form{
+      input[type="text"] {
+        width: 100%;
+        border: 2px solid $secondary-color;
+        border-radius: 4px;
+        margin: 8px 0;
+        outline: none;
+        padding: 8px;
+        box-sizing: border-box;
+        transition: 0.3s;
+      }
+      
+      input[type="text"]:focus {
+        border-color: $primary-color;
+        box-shadow: 0 0 8px 0 $primary-color;
+      }
+      
+      .inputWithIcon input[type="text"] {
+        padding-left: 40px;
+      }
+      
+      .inputWithIcon {
+        position: relative;
+      }
+      
+      .inputWithIcon i {
+        position: absolute;
+        left: 0;
+        top: 8px;
+        padding: 9px 8px;
+        color: $secondary-color;
+        transition: 0.3s;
+      }
+      
+      .inputWithIcon input[type="text"]:focus + i {
+        color: $primary-color;
+      }
+      .inputWithIcon.inputIconBg input[type="text"]:focus + i {
+        color: #fff;
+        background-color: $primary-color;
+      }
+    }
+  }
+}

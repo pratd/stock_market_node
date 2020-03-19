@@ -1,8 +1,57 @@
-body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif; }
+* {
+  font-family: 'Roboto', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale; }
 
-a {
-  color: #00B7FF; }
+h1 {
+  font-size: 36px;
+  font-weight: 700; }
+
+@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+  /* IE10+ CSS styles go here */ }
+
+#navbarNav a {
+  color: #81bb26; }
+
+#navbarNav a:hover {
+  color: #020435; }
+
+.img-searcher-container {
+  background-image: url("../../images/cover.png");
+  background-size: auto;
+  max-height: 310px;
+  height: -webkit-fill-available; }
+  .img-searcher-container .searcher-container {
+    max-width: 410px; }
+    .img-searcher-container .searcher-container h2 {
+      font-size: 18px; }
+    .img-searcher-container .searcher-container form input[type="text"] {
+      width: 100%;
+      border: 2px solid #020435;
+      border-radius: 4px;
+      margin: 8px 0;
+      outline: none;
+      padding: 8px;
+      box-sizing: border-box;
+      transition: 0.3s; }
+    .img-searcher-container .searcher-container form input[type="text"]:focus {
+      border-color: #81bb26;
+      box-shadow: 0 0 8px 0 #81bb26; }
+    .img-searcher-container .searcher-container form .inputWithIcon input[type="text"] {
+      padding-left: 40px; }
+    .img-searcher-container .searcher-container form .inputWithIcon {
+      position: relative; }
+    .img-searcher-container .searcher-container form .inputWithIcon i {
+      position: absolute;
+      left: 0;
+      top: 8px;
+      padding: 9px 8px;
+      color: #020435;
+      transition: 0.3s; }
+    .img-searcher-container .searcher-container form .inputWithIcon input[type="text"]:focus + i {
+      color: #81bb26; }
+    .img-searcher-container .searcher-container form .inputWithIcon.inputIconBg input[type="text"]:focus + i {
+      color: #fff;
+      background-color: #81bb26; }
 
 /*# sourceMappingURL=style.css.map */
