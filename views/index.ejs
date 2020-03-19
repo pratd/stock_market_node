@@ -1,11 +1,57 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title><%= title %></title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <title>Market Basket</title>
+    <link rel='stylesheet' href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900&display=swap"/>
+    <link rel='stylesheet' href="https://fonts.googleapis.com/icon?family=Material+Icons"/>
+    <link rel='stylesheet' href='/bootstrap/css/bootstrap.css'/>
+    <link rel='stylesheet' href='/stylesheets/style.css'/>
   </head>
   <body>
-    <h1><%= title %></h1>
-    <p>Welcome to <%= title %></p>
+    <body>
+      <div id="app">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+          <a to="/" class="navbar-brand v-market-logo"><img alt="Visual Market logo" height="40" src="/images/logo-land-neg.png"></a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+            <ul class="navbar-nav">
+              <li class="nav-item active">
+                <a to="/about" class="nav-link">Market Values</a>
+              </li>
+              <li class="nav-item active">
+                <a to="/about" class="nav-link">Top Values</a>
+              </li>
+              <li class="nav-item active d-flex align-items-center">
+                <a to="/about" class="nav-link p-0"><i class="material-icons pt-1">bookmark</i></a>
+              </li>
+            </ul>
+          </div>
+        </nav>
+        <div class="home">
+          <div class="img-searcher-container d-flex justify-content-center">
+            <div class="d-flex justify-content-center align-items-end flex-column container">
+              <div class="searcher-container">
+                <h1 class="text-white">The World’s Leading Exchange Platform</h1>
+                <h2 class="text-white">Trade Bitcoin, BNB, and hundreds of other cryptocurrencies in minutes</h2>
+                <form id="searcher">
+                  <div class="inputWithIcon">
+                    <input type="text" placeholder="Search for markets">
+                    <i class="material-icons" aria-hidden="true">search</i>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+        <footer class="d-flex justify-content-center">
+          <img alt="Visual Market logo" height="100" src="/images/logo-port-neg.png">
+        </footer>
+      </div>
+    </body>
+    <script src='/jquery/jquery.js'></script>
+    <script src='/popper.js/popper.js'></script>
+    <script src='/bootstrap/js/bootstrap.js'></script>
   </body>
 </html>
