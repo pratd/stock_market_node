@@ -1,21 +1,16 @@
 var express = require('express');
 var router = express.Router();
+const indexController = require("../controllers/index")
 
-/* GET home page. */
-router.get('/', function(req, res, next) {
-  res.render('index');
-});
+// homepage that renders all of the markets
+router.get('/', indexController.index);
 
-// top ejs file
-router.get('/top' , (req, res, next) => {
-  res.render('top');
-});
+// // top 5 markets
+// router.get('/top', );
 
-// main ejs file
-router.get('/main' , (req, res, next) => {
-  res.render('main');
-});
+// // top 5 markets
+// router.get('/market/:stock', );
 
-// 
+// router.get('/markets?search=:term', )
 
 module.exports = router;
