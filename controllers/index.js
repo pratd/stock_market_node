@@ -3,6 +3,7 @@ require('dotenv').config()
 const url = require('url');
 
 var apiurl = process.env.APIURL
+var topQty = process.env.TOPQTY
 
 const controller = {
 	index: function(req, res){
@@ -10,6 +11,15 @@ const controller = {
 			.then(response => {
 				res.locals.markets = response;
 				res.render('pages/index', {markets:response});
+			})
+			.catch(error => {
+				res.send(error)
+			})
+	},
+	topMarkets: function(req, res){
+		indexModel.index(apiurl + 'marketDetails?_sort=price&_order=desc&_limit=' + topQty)
+			.then(response => {
+				res.render('pages/top-markets', {markets:response, topQty});
 			})
 			.catch(error => {
 				res.send(error)

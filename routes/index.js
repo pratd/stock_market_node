@@ -6,7 +6,7 @@ const indexController = require("../controllers/index")
 router.get('/', indexController.index);
 
 // // top 5 markets
-// router.get('/top', );
+router.get('/top', indexController.topMarkets);
 
 // // top 5 markets
 // router.get('/market/:stock', );

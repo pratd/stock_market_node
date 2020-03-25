@@ -1,0 +1,18 @@
+<% include ../partials/header %>
+<div id="topMarketValues" class="market-values container py-5">
+	<h3 class="mb-3 table-title">Top <%= topQty %></h3>
+	<div class="accordion" id="topMarketValue">
+		<% for(var i=0; i < markets.length; i++) { %>
+			<div class="card">
+				<div class="card-header d-flex justify-content-between align-items-center">
+					<a href="#"><button class="left-side-els" type="button" data-toggle="collapse" data-target="<%= '#collapse-market' + markets[i].id %>" aria-expanded="false" :aria-controls="<%= 'collapse-market' + markets[i].id %>">
+						<img width="36" src="<%= '/images/markets/' + markets[i].id + '.png' %>">
+						<span><%= markets[i].symbol %></span>
+						<span><%= markets[i].name %></span>
+					</button></a>
+				</div>
+			</div>
+		<% }; %>
+	</div>
+</div>
+<% include ../partials/footer %>
