@@ -8,8 +8,5 @@ module.exports = {
 				resolve(body)
 			});
 		})
-
-		// http.get
-		// https://fake-stock-eye.herokuapp.com/
 	}
 }
