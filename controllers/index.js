@@ -6,7 +6,7 @@ var apiurl = process.env.APIURL
 
 const controller = {
 	index: function(req, res){
-		indexModel.index(apiurl + '/marketDetails')
+		indexModel.index(apiurl + 'marketDetails')
 			.then(response => {
 				res.render('pages/index', {markets:response});
 			})
