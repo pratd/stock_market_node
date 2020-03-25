@@ -17,20 +17,31 @@
               </li>
             </ul>
           </div>
-        </nav>
-        <div class="header">
-          <div class="img-searcher-container d-flex justify-content-center">
-            <div class="d-flex justify-content-center align-items-end flex-column container">
-              <div class="searcher-container">
-                <h1 class="text-white">The World’s Leading Exchange Platform</h1>
-                <h2 class="text-white">Trade Bitcoin, BNB, and hundreds of other cryptocurrencies in minutes</h2>
-                <form id="searcher">
-                  <div class="inputWithIcon">
-                    <input type="text" placeholder="Search for markets">
-                    <i class="material-icons" aria-hidden="true">search</i>
-                  </div>
-                </form>
-              </div>
-            </div>
-          </div>
+		</nav>
+		<div>
+			<div class="img-searcher-container d-flex justify-content-center">
+				<div class="d-flex justify-content-center align-items-end flex-column container">
+					<div class="searcher-container">
+						<h1 class="text-white">The World’s Leading Exchange Platform</h1>
+						<h2 class="text-white">Trade Bitcoin, BNB, and hundreds of other cryptocurrencies in minutes</h2>
+						<div id="searcher">
+							<div class="inputWithIcon">
+								<input type="text" placeholder="Search for markets" @keyup.enter="submit" v-model="searchQuery">
+								<i class="material-icons" aria-hidden="true">search</i>
+								<!-- <input type="submit" value="search"> -->
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="rolling-market-background">
+				<div class="ticker-wrap d-flex">
+					<div class="ticker">
+						<% for(var i=0; i < markets.length; i++) { %>
+							<div class="ticker__item"><span><%= markets[i].symbol %></span> | <span class="text-danger"><%= markets[i].price %> $</span></div>
+						<% }; %>
+
+					</div>
+				</div>
+			</div>
 		</div>
