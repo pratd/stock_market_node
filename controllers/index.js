@@ -1,7 +1,7 @@
 const indexModel = require("../models/index");
-var url = require('url');
+const url = require('url');
 
-var controller = {
+const controller = {
 	index: function(req, res){
 		indexModel.index('https://jsonplaceholder.typicode.com/todos/1')
 			.then(response => {
