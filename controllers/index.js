@@ -8,6 +8,7 @@ const controller = {
 	index: function(req, res){
 		indexModel.index(apiurl + 'marketDetails')
 			.then(response => {
+				res.locals.markets = response;
 				res.render('pages/index', {markets:response});
 			})
 			.catch(error => {
