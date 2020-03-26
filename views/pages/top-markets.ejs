@@ -1,18 +1,29 @@
 <% include ../partials/header %>
-<div id="topMarketValues" class="market-values container py-5">
-	<h3 class="mb-3 table-title">Top <%= topQty %></h3>
-	<div class="accordion" id="topMarketValue">
-		<% for(var i=0; i < markets.length; i++) { %>
+	<div id="topMarketValues" class="market-values container py-5">
+		<h3 class="mb-3 table-title">Top <%= topQty %></h3>
+		<div class="accordion" id="topMarketValue">
 			<div class="card">
-				<div class="card-header d-flex justify-content-between align-items-center">
-					<a href="#"><button class="left-side-els" type="button" data-toggle="collapse" data-target="<%= '#collapse-market' + markets[i].id %>" aria-expanded="false" :aria-controls="<%= 'collapse-market' + markets[i].id %>">
-						<img width="36" src="<%= '/images/markets/' + markets[i].id + '.png' %>">
-						<span><%= markets[i].symbol %></span>
-						<span><%= markets[i].name %></span>
-					</button></a>
+				<% for(var i=0; i < markets.length; i++) { %>
+				<div class="card-header" id="<%= 'top-Heading-market' + markets[i].id %>">
+					<button class="btn-market btn btn-link d-flex justify-content-between w-100" type="button" data-toggle="collapse" data-target="<%= '#top-collapse-market' + markets[i].id %>" aria-expanded="false" aria-controls="<%= 'top-collapse-market' + markets[i].id %>">
+						<div class="left-side-els">
+							<img width="36" src="<%= '/images/markets/' + markets[i].id + '.png' %>">
+							<span><%= markets[i].symbol %></span>
+							<span><%= markets[i].name %></span>
+						</div>
+						<div class="right-side-els">
+							<span><%= markets[i].price %> $</span>
+						</div>
+					</button>
 				</div>
+				<div id="<%= 'top-collapse-market' + markets[i].id %>" class="collapse" aria-labelledby="<%= 'top-heading' + markets[i].id %>" data-parent="#topMarketValue">
+					<div class="card-body d-flex flex-column align-items-end">
+						<%= markets[i].description %>
+						<a href="<%= '/market?market=' + markets[i].name %>"><button>Go to detail</button></a>
+					</div>
+				</div>
+				<% }; %>
 			</div>
-		<% }; %>
+		</div>
 	</div>
-</div>
 <% include ../partials/footer %>
