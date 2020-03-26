@@ -5,20 +5,23 @@
 			<div class="card">
 				<% for(var i=0; i < markets.length; i++) { %>
 				<div class="card-header" id="<%= 'heading-market' + markets[i].id %>">
-					<button class="btn-market btn btn-link d-flex justify-content-between w-100" type="button" data-toggle="collapse" data-target="<%= '#collapse-market' + markets[i].id %>" aria-expanded="false" aria-controls="<%= 'collapse-market' + markets[i].id %>">
-						<div class="left-side-els">
+					<button class="btn-market btn btn-link d-flex justify-content-between align-items-center w-100" type="button" data-toggle="collapse" data-target="<%= '#collapse-market' + markets[i].id %>" aria-expanded="false" aria-controls="<%= 'collapse-market' + markets[i].id %>">
+						<div class="left-side-els d-flex justify-content-between d-sm-block d-md-block d-lg-block d-xl-block">
 							<img width="36" src="<%= '/images/markets/' + markets[i].id + '.png' %>">
 							<span><%= markets[i].symbol %></span>
 							<span><%= markets[i].name %></span>
 						</div>
-						<div class="right-side-els">
+						<div class="right-side-els d-none d-sm-block d-md-block d-lg-block d-xl-block">
 							<span><%= markets[i].price %> $</span>
 						</div>
 					</button>
 				</div>
 				<div id="<%= 'collapse-market' + markets[i].id %>" class="collapse" aria-labelledby="<%= 'heading' + markets[i].id %>" data-parent="#marketValue">
 					<div class="card-body d-flex flex-column align-items-end">
-						<%= markets[i].description %>
+						<div>
+							<p class="mb-2 detailed-market-name d-sm-none d-md-none d-lg-none d-xl-none">Last price: $<%= markets[0].price %></p>
+							<%= markets[i].description %>
+						</div>
 						<a href="<%= '/market?market=' + markets[i].name %>"><button class="details-button">Go to detail</button></a>
 					</div>
 				</div>
