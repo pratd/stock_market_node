@@ -34,8 +34,19 @@ const controller = {
 			res.send(error)
 		})
 	},
-	search: function(req, res){
-		indexModel.index(apiurl + 'marketDetails?name=' + req.query['market'])
+	submitSearch: function(req, res){
+		let searchInput = req.body.searchTerm;
+		searchInput = searchInput.charAt(0).toUpperCase() + searchInput.slice(1);
+		res.redirect('/results?term=' + searchInput);
+	},
+	getResults: function(req, res){
+		indexModel.index(apiurl + 'marketDetails?name=' + req.query['term'])
+		.then(response => {
+			res.render('pages/search-results', {results:response});
+		})
+		.catch(error => {
+			res.send(error)
+		})
 	}
 }
 https://fake-stock-eye.herokuapp.com/history?symbol=BTC
