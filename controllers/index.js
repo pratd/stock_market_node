@@ -24,7 +24,17 @@ const controller = {
 			.catch(error => {
 				res.send(error)
 			})
+	},
+	marketDetails: function(req, res){
+		indexModel.index(apiurl + 'marketDetails?symbol' + req.query['market'])
+			.then(response => {
+				res.render('pages/market-detail', {market:response});
+			})
+			.catch(error => {
+				res.send(error)
+			})
 	}
 }
+https://fake-stock-eye.herokuapp.com/history?symbol=BTC
 
 module.exports = controller;

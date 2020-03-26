@@ -9,7 +9,7 @@ router.get('/', indexController.index);
 router.get('/top', indexController.topMarkets);
 
 // // top 5 markets
-// router.get('/market/:stock', );
+router.get('/market', indexController.marketDetails);
 
 // router.get('/markets?search=:term', )
 
