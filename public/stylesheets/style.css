@@ -8,7 +8,7 @@ h1 {
   font-size: 36px;
   font-weight: 700; }
 
-.bookmark-button, input[type="submit"] {
+.bookmark-button, input[type="submit"], .details-button {
   text-transform: uppercase;
   background-color: #020435;
   border: none;

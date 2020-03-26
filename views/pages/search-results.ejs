@@ -19,7 +19,7 @@
 					<div id="<%= 'search-result' + results[i].id %>" class="collapse" aria-labelledby="<%= 'heading-search-result' + results[i].id %>" data-parent="#searchResult">
 						<div class="card-body d-flex flex-column align-items-end">
 							<%= results[i].description %>
-							<a href="<%= '/market?market=' + results[i].name %>"><button>Go to detail</button></a>
+							<a href="<%= '/market?market=' + results[i].name %>"><button class="details-button">Go to detail</button></a>
 						</div>
 					</div>
 				<% }; %>
