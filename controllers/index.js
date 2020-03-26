@@ -26,7 +26,7 @@ const controller = {
 			})
 	},
 	marketDetails: function(req, res){
-		indexModel.index(apiurl + 'marketDetails?symbol' + req.query['market'])
+		indexModel.index(apiurl + 'marketDetails?name=' + req.query['market'])
 			.then(response => {
 				res.render('pages/market-detail', {market:response});
 			})
