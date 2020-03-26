@@ -140,6 +140,10 @@ h1 {
     .img-searcher-container .searcher-container #searcher .inputWithIcon.inputIconBg input[type="text"]:focus + i {
       color: #fff;
       background-color: #81bb26; }
+    .img-searcher-container .searcher-container #searcher input[type="submit"] {
+      position: absolute;
+      left: 238px;
+      top: 14px; }
 
 @media (max-width: 575px) {
   .searcher-container #searcher input[type="text"] {

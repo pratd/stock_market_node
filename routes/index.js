@@ -11,6 +11,6 @@ router.get('/top', indexController.topMarkets);
 // // top 5 markets
 router.get('/market', indexController.marketDetails);
 
-// router.get('/markets?search=:term', )
+router.get('/search', indexController.search)
 
 module.exports = router;
