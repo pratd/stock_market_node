@@ -10,7 +10,7 @@ h1{
     font-weight: 700;
 }
 
-.bookmark-button, input[type="submit"]{
+.bookmark-button, input[type="submit"], .details-button{
 	text-transform: uppercase;
 	background-color: $secondary-color;
 	border: none;
@@ -18,4 +18,14 @@ h1{
 	color: white !important;
 	border-radius: 4px;
 	padding: 4px 9px;
+}
+
+
+.table-title, .detailed-market-name {
+	color: $primary-color;
+}
+
+.table-title{
+	text-transform: uppercase;
+    font-size: 27px;
 }

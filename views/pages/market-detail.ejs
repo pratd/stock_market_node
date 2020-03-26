@@ -1,3 +1,15 @@
-<%# include ../partials/header %>
-<h1>Hello from <%= market[0].name %></h1>
+<% include ../partials/header %>
+<div class="detailed-market container mt-5">
+	<div class="title d-flex justify-content-between align-items-center mb-5">
+		<div class="d-flex align-items-center">
+			<img width="36" src="<%= '/images/markets/' + market[0].id + '.png' %>">
+			<h3 class="table-title my-0 mx-3"><%= market[0].symbol %></h3>
+			<h4 class="detailed-market-name m-0"><%= market[0].name %></h4>
+		</div>
+		<h4 class="table-title m-0">Last price: $<%= market[0].price %></h4>
+	</div>
+	<div class="body">
+		<p class="mb-5"><%= market[0].description %></p>
+	</div>
+</div>
 <% include ../partials/footer %>
