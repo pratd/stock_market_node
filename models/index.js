@@ -7,6 +7,6 @@ module.exports = {
 				if (err) reject(err);
 				resolve(body);
 			});
-		})
+		});
 	}
-}
+};
