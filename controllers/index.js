@@ -27,7 +27,7 @@ const controller = {
 	},
 	marketDetails: function(req, res){
 		const market = req.path.split('/').pop();
-		indexModel.index(apiurl + '/search?target=' + market)
+		indexModel.index(apiurl + 'search?target=' + market)
 		.then(response => {
 			res.render('pages/market-detail', {market:response});
 		})
