@@ -7,9 +7,12 @@ var topQty = process.env.TOPQTY;
 
 const controller = {
 	index: function(req, res){
+		if (req.url === '/?success=false') {
+			req.app.get('success')
+			req.app.set('success', false);
+		}
 		indexModel.index(apiurl + 'markets')
 		.then(response => {
-			// app.set('headerItems', response)
 			res.render('pages/index', {markets:response});
 		})
 		.catch(error => {
@@ -37,10 +40,13 @@ const controller = {
 	},
 	submitSearch: function(req, res){
 		let searchInput = req.body.searchTerm;
-		if(searchInput){
+		const letters = /^[A-Za-z]+$/;
+		if(searchInput.match(letters)){
 			// searchInput = searchInput.charAt(0).toUpperCase() + searchInput.slice(1);
 			searchInput = searchInput.toUpperCase();
 			res.redirect('/results?term=' + searchInput);
+		}else{
+			res.redirect('/?success=false');
 		}
 	},
 	getResults: function(req, res){

@@ -9,5 +9,4 @@ const marketsForHeader = new Promise((resolve, reject) => {
 	});
 
 })
-
 module.exports = marketsForHeader;

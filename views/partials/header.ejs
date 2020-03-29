@@ -30,6 +30,11 @@
 								<i class="material-icons" aria-hidden="true">search</i>
 								<input type="submit" value="search">
 							</div>
+							<% if (settings.success == false) { %>
+								<div class="alert alert-danger" role="alert">
+									A simple warning alert—check it out!
+								</div>
+							<% } %>
 						</form>
 					</div>
 				</div>

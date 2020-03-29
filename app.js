@@ -40,6 +40,7 @@ marketsForHeader.then((data) => {
 	app.set("headerMarkets", data);
 });
 
+app.set("success", true);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
