@@ -31,8 +31,35 @@ const controller = {
 	marketDetails: function(req, res){
 		const market = req.path.split('/').pop();
 		indexModel.index(apiurl + 'search?target=' + market)
-		.then(response => {
-			res.render('pages/market-detail', {market:response});
+		//callback hell
+		.then(marketResponse => {
+			indexModel.index(apiurl + 'history?symbol=' + market)
+			.then(chartResponse=>{
+				//store the response for the charts
+				var dataset = {};
+				dataset.name = 'price chart';
+				dataset.data = [];
+				if (chartResponse.length>0){
+					for(var i=0; i<chartResponse.length; i++ ){
+						var obj={};
+						obj.x= new Date(chartResponse[i].price_datetime);
+						var picked = (({ open, high, low, close }) => ({ open, high, low, close }))(chartResponse[i]);
+						obj.y=Object.values(picked);
+						dataset.data.push(obj);
+					}
+				}else{
+					var obj={};
+					obj.x= 0;
+					obj.y= [0,0,0,0];
+					dataset.data.push(obj);
+				}
+				console.log(marketResponse);
+				res.render('pages/market-detail',{chartData: JSON.stringify(dataset), market: marketResponse});
+			})
+			.catch(error=>{
+				res.send(error);
+			});
+			//res.render('pages/market-detail', {chartData: JSON.stringify(dataset),market:response});
 		})
 		.catch(error => {
 			res.send(error);
@@ -55,34 +82,6 @@ const controller = {
 			res.render('pages/search-results', {results:response});
 		})
 		.catch(error => {
-			res.send(error);
-		});
-	},
-	getChartResults:function(req, res){
-		indexModel.index(apiurl + 'history?symbol=' + req.query['market'])
-		.then(response=>{
-			//store the response for the charts
-			
-			var dataset = {};
-			dataset.name = 'price chart';
-			dataset.data = [];
-			if (response.length>0){
-				for(var i=0; i<response.length; i++ ){
-					var obj={};
-					obj.x= new Date(response[i].CloseTime);
-					var picked = (({ Open, High, Low, Close }) => ({ Open, High, Low, Close }))(response[i]);
-					obj.y=Object.values(picked);
-					dataset.data.push(obj);
-				}
-			}else{
-				var obj={};
-				obj.x= 0;
-				obj.y= [0,0,0,0];
-				dataset.data.push(obj);
-			}
-			res.render('pages/chart',{chartData: JSON.stringify(dataset), market: response});
-		})
-		.catch(error=>{
 			res.send(error);
 		});
 	}

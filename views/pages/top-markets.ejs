@@ -25,7 +25,7 @@
 								VisualMarket supports the deposit of more than 150 cryptocurrencies, several of which you can exchange for <%= markets[i].market_name %> at some of the best rates in the market.
 								You can directly purchase <%= markets[i].market_name %> with credit card on VisualMarket. We offer the best route to buy <%= markets[i].market_name %> using debit card or credit card.
 						</div>
-						<a href="<%= '/market?market=' + markets[i].name %>"><button class="details-button">Go to detail</button></a>
+						<a href="<%= '/market/' + markets[i].market_symbol %>"><button class="details-button">Go to detail</button></a>
 					</div>
 				</div>
 				<% }; %>

@@ -9,11 +9,71 @@
 		<!-- <h4 class="m-0 detailed-market-name mt-3 mt-sm-0 mt-md-0 mt-lg-0 mt-xl-0">Last price: $<%= market[0].close %></h4> -->
 	</div>
 	<div class="body">
+        <div id="chart"></div>
 		<p class="mb-5"><%= market[0].market_name %> is a stock market in process of growing and therefore VisualMarket recommends it. If you're willing to see how your money grows exponentially, do not hesitate to invest in <%= market[0].market_name %>. 
 			Buy stablecoins listed on VisualMarket by wiring money from your account to the providers of these coins. Then, use these stablecoins to buy <%= market[0].market_name %>  on VisualMarket exchange.
 			VisualMarket supports the deposit of more than 150 cryptocurrencies, several of which you can exchange for <%= market[0].market_name %> at some of the best rates in the market.
 			You can directly purchase <%= market[0].market_name %> with credit card on VisualMarket. We offer the best route to buy <%= market[0].market_name %> using debit card or credit card.
-		</p>
+        </p>
 	</div>
 </div>
 <% include ../partials/footer %>
+<script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+<script>
+    var options={
+        chart: {
+            type: 'candlestick',
+            height: 350,
+            width: 800
+        },
+        title: {
+            text: 'CandleStick Chart',
+            align: 'left'
+        },
+        xaxis: {
+            type: 'datetime'
+        },
+        yaxis: {
+            tooltip: {
+                enabled: true
+            }
+        },
+        plotOptions:{
+            candlestick:{
+                colors:{
+                    upward: '#3C90EB',
+                    downward: '#DF7D46'
+                },
+                wick:{
+                    useFillColor:true,
+                }
+            }
+        },
+        responsive: [
+            {
+                breakpoint: 384,
+                // options: {
+                // 	plotOptions: {
+                // 	candlestick: {
+                // 		horizontal: true
+                // 	}
+                // 	},
+                // 	legend: {
+                // 	position: "bottom"
+                // 	}
+                // }
+            }
+        ],
+        series:[ JSON.parse('<%- chartData%>')
+            // {
+            // name:'Price chart',
+            // data:[]
+            // }
+        ]
+	};
+    var chart = new ApexCharts(
+        document.querySelector("#chart"),
+        options
+    );
+    chart.render();
+</script>

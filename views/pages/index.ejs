@@ -18,14 +18,12 @@
 				</div>
 				<div id="<%= 'collapse-market' + markets[i].market_symbol %>" class="collapse" aria-labelledby="<%= 'heading' + markets[i].market_symbol %>" data-parent="#marketValue">
 					<div class="card-body d-flex flex-column align-items-end">
-						<a href="<%= '/history?market=' + markets[i].symbol %>"><button class="details-button">Chart</button></a>
 						<div>
 							<p class="mb-2 detailed-market-name d-sm-none d-md-none d-lg-none d-xl-none">Last price: $<%= markets[0].close %></p>
 								<%= markets[i].market_name %> is a stock market in process of growing and therefore VisualMarket recommends it. If you're willing to see how your money grows exponentially, do not hesitate to invest in <%= markets[i].market_name %>. 
 								Buy stablecoins listed on VisualMarket by wiring money from your account to the providers of these coins. Then, use these stablecoins to buy <%= markets[i].market_name %> on VisualMarket exchange.
 								VisualMarket supports the deposit of more than 150 cryptocurrencies, several of which you can exchange for <%= markets[i].market_name %> at some of the best rates in the market.
 								You can directly purchase <%= markets[i].market_name %> with credit card on VisualMarket. We offer the best route to buy <%= markets[i].market_name %> using debit card or credit card.
-							
 						</div>
 						<a href="<%= '/market/' + markets[i].market_symbol %>"><button class="details-button">Go to detail</button></a>
 					</div>
