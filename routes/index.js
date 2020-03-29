@@ -9,8 +9,10 @@ router.get('/top', indexController.topMarkets);
 
 router.get('/market/:symbol', indexController.marketDetails);
 
-router.post('/search-form', indexController.submitSearch)
+router.get('/history', indexController.getChartResults);
 
-router.get('/results', indexController.getResults)
+router.post('/search-form', indexController.submitSearch);
+
+router.get('/results', indexController.getResults);
 
 module.exports = router;
