@@ -2,14 +2,18 @@
 <div class="detailed-market container mt-5">
 	<div class="title d-flex flex-column flex-sm-row flex-md-row flex-lg-row flex-xl-row justify-content-between align-items-start  align-items-sm-center align-items-md-center align-items-lg-center align-items-xl-center mb-5">
 		<div class="d-flex align-items-center">
-			<img width="36" src="<%= '/images/markets/' + market[0].id + '.png' %>">
-			<h3 class="table-title my-0 mx-3"><%= market[0].symbol %></h3>
-			<h4 class="detailed-market-name m-0"><%= market[0].name %></h4>
+			<!-- <img width="36" src="<%= '/images/markets/' + market[0].id + '.png' %>"> -->
+			<h3 class="table-title my-0 mx-3"><%= market[0].market_symbol %></h3>
+			<h4 class="detailed-market-name m-0"><%= market[0].market_name %></h4>
 		</div>
-		<h4 class="m-0 detailed-market-name mt-3 mt-sm-0 mt-md-0 mt-lg-0 mt-xl-0">Last price: $<%= market[0].price %></h4>
+		<!-- <h4 class="m-0 detailed-market-name mt-3 mt-sm-0 mt-md-0 mt-lg-0 mt-xl-0">Last price: $<%= market[0].close %></h4> -->
 	</div>
 	<div class="body">
-		<p class="mb-5"><%= market[0].description %></p>
+		<p class="mb-5"><%= market[0].market_name %> is a stock market in process of growing and therefore VisualMarket recommends it. If you're willing to see how your money grows exponentially, do not hesitate to invest in <%= market[0].market_name %>. 
+			Buy stablecoins listed on VisualMarket by wiring money from your account to the providers of these coins. Then, use these stablecoins to buy <%= market[0].market_name %>  on VisualMarket exchange.
+			VisualMarket supports the deposit of more than 150 cryptocurrencies, several of which you can exchange for <%= market[0].market_name %> at some of the best rates in the market.
+			You can directly purchase <%= market[0].market_name %> with credit card on VisualMarket. We offer the best route to buy <%= market[0].market_name %> using debit card or credit card.
+		</p>
 	</div>
 </div>
 <% include ../partials/footer %>

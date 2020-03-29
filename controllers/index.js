@@ -7,7 +7,7 @@ var topQty = process.env.TOPQTY
 
 const controller = {
 	index: function(req, res){
-		indexModel.index(apiurl + 'marketDetails')
+		indexModel.index(apiurl + 'markets')
 		.then(response => {
 			// app.set('headerItems', response)
 			res.render('pages/index', {markets:response});
@@ -17,7 +17,7 @@ const controller = {
 		})
 	},
 	topMarkets: function(req, res){
-		indexModel.index(apiurl + 'marketDetails?_sort=price&_order=desc&_limit=' + topQty)
+		indexModel.index(apiurl + 'markets?quantity=' + topQty)
 		.then(response => {
 			res.render('pages/top-markets', {markets:response, topQty});
 		})
@@ -26,7 +26,8 @@ const controller = {
 		})
 	},
 	marketDetails: function(req, res){
-		indexModel.index(apiurl + 'marketDetails?name=' + req.query['market'])
+		const market = req.path.split('/').pop();
+		indexModel.index(apiurl + '/search?target=' + market)
 		.then(response => {
 			res.render('pages/market-detail', {market:response});
 		})
@@ -36,11 +37,14 @@ const controller = {
 	},
 	submitSearch: function(req, res){
 		let searchInput = req.body.searchTerm;
-		searchInput = searchInput.charAt(0).toUpperCase() + searchInput.slice(1);
-		res.redirect('/results?term=' + searchInput);
+		if(searchInput){
+			// searchInput = searchInput.charAt(0).toUpperCase() + searchInput.slice(1);
+			searchInput = searchInput.toUpperCase();
+			res.redirect('/results?term=' + searchInput);
+		}
 	},
 	getResults: function(req, res){
-		indexModel.index(apiurl + 'marketDetails?name=' + req.query['term'])
+		indexModel.index(apiurl + 'search?target=' + req.query['term'])
 		.then(response => {
 			res.render('pages/search-results', {results:response});
 		})

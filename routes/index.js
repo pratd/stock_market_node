@@ -7,7 +7,7 @@ router.get('/', indexController.index);
 
 router.get('/top', indexController.topMarkets);
 
-router.get('/market', indexController.marketDetails);
+router.get('/market/:symbol', indexController.marketDetails);
 
 router.post('/search-form', indexController.submitSearch)
 
